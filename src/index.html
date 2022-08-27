@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./css/styles.css">
     <title>Find-a-meal</title>
 </head>
-<body>
-    <div class="container-fluid">
+<body >
+    <div  class="container-fluid">
         <div class="row" id="myapp">
             <section class="col-12" id="header1">
                 <div class="row">
@@ -57,7 +57,7 @@
                         
                             <input type="search" class="form-control rounded" placeholder="Búsqueda por texto" />
                             <span >
-                                <button class="btn btn-lg btn-primary"><i class="bi bi-search"></i></button>
+                                <button id="btn_search" class="btn btn-lg btn-primary"><i class="bi bi-search"></i></button>
                             </span>
                         
                         </div>
@@ -71,56 +71,18 @@
                     <div class="card-body">
 
                         
-                        <button class="btn btn-lg btn-secondary">Sorpréndeme</button>
+                        <button id="btn_random" class="btn btn-lg btn-secondary">Sorpréndeme</button>
                     </div>
 
                 </div>
                 
 
             </section>
-            <section id="carrusel" class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="card image-card">
-                            <div class="card-body">
-                                <img class="image-food img-fluid" src="https://foodish-api.herokuapp.com/images/dessert/dessert16.jpg">
-                                <h3>Nombre de la receta</h3>
-                                <a class="btn btn-primary" href="#">Ver más</a>
-                        
-                            </div>
-                        
-                        </div>
-
-                    </div>
-                    <div class="col-sm">
-                        <div class="card image-card">
-                            <div class="card-body">
-                                <img class="image-food img-fluid" src="https://foodish-api.herokuapp.com/images/dessert/dessert16.jpg">
-                                <h3>Nombre de la receta</h3>
-                                <a class="btn btn-primary" href="#">Ver más</a>
-                        
-                            </div>
-                        
-                        </div>
-                    
-                    </div>
-                    <div class="col-sm">
-                        <div class="card image-card">
-                            <div class="card-body">
-                                <img class="image-food img-fluid" src="https://foodish-api.herokuapp.com/images/dessert/dessert16.jpg">
-                                <h3>Nombre de la receta</h3>
-                                <a class="btn btn-primary" href="#">Ver más</a>
-                        
-                            </div>
-                        
-                        </div>
-                    
-                    </div>
-                    
-
-                </div>
+            <section id="carrusel" class="container" >
+                
 
             </section>
+            
 
             
             
@@ -133,5 +95,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='./js/connection.js'></script>
 </body>
 </html>

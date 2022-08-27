@@ -1,12 +1,11 @@
-@import url("https: //fonts.googleapis.com/css?family=Roboto");
-@import url("https: //fonts.googleapis.com/css?family=Montserrat");
+
 
 body {
     background-color: rgb(252, 208, 163);
     height: 100%;
 
     /*background-image: linear-gradient(to bottom, #EEE, #DDD);/*/
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     
 }
 
@@ -26,12 +25,18 @@ nav{
     
 }
 
-.image-food{
-    max-width: 100%;
+#carrusel {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+#carrusel .card{
+    
     
     
 }
-.image-card{
+#carrusel .card img{
+
     
 }
 
@@ -40,12 +45,16 @@ nav{
     display: none;
 }
 h1{
-    font-family: 'Montserrat';
+    font-family: serif;
     font-size: 11vw;
     
     color: #EEE;
     text-align: center;
    
+}
+
+h3{
+    font-size: 3vw;
 }
 
 #group-input{
@@ -64,6 +73,11 @@ h1{
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
+
+    #carrusel {
+            display: inline-block;
+            
+        }
 
 }
 
