@@ -1,7 +1,65 @@
+@import url("https: //fonts.googleapis.com/css?family=Roboto");
+@import url("https: //fonts.googleapis.com/css?family=Montserrat");
+
 body {
-    background-color: peru;
+    background-color: rgb(252, 208, 163);
+    height: 100%;
+
+    /*background-image: linear-gradient(to bottom, #EEE, #DDD);/*/
+    font-family: 'Roboto', sans-serif;
+    
 }
 
+#main{
+    width: 90%;
+    margin: 90px auto 10px auto;
+}
+
+#myapp{
+    padding: 5px 15px;
+}
+
+nav{
+ 
+   
+    
+    
+}
+
+.image-food{
+    max-width: 100%;
+    
+    
+}
+.image-card{
+    
+}
+
+#header1{
+    background-color: #EEE;
+    display: none;
+}
+h1{
+    font-family: 'Montserrat';
+    font-size: 11vw;
+    
+    color: #EEE;
+    text-align: center;
+   
+}
+
+#group-input{
+    width: 50%;
+
+}
+
+
+
+.btn{
+    /*width: 50%;
+    margin: 10px auto;
+    display: block;*/
+}
 
 
 /* Extra small devices (portrait phones, less than 576px)*/
