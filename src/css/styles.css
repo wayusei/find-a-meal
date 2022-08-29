@@ -1,22 +1,67 @@
 body {
-    background-color: peru;
+    background-color: white;
+    background-image: url("/src/assets/foodbg.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main{
+    margin:120px 200px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    padding-bottom: 80px !important;
+}
+
+
+.main-title > h1{
+    font-family: 'Allura', cursive;
+    font-size: 5rem;
+    color: #006658;
+}
+
+.text-muted{
+    padding:10px;
+}
+
+.search-button, .surprise-me-button{
+    width:100%;
+    margin-left:5px;
+    margin-right:5px;
 }
 
 
 
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
-
+    .main{
+        margin:60px 40px;
+        border-radius: 10px;
+    }
+    .main-title > h1{
+        font-size: 3.5rem;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
-
+    .main{
+        margin:60px 40px;
+        border-radius: 10px;
+    }
+    .main-title > h1{
+        font-size: 4.5rem;
+    }
 }
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
-
+    .main{
+        margin:40px 30px;
+        border-radius: 10px;
+    }
+    
 }
 
 /* Large devices (desktops, 992px and up)*/
