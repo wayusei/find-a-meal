@@ -36,8 +36,9 @@ body {
 
 #carrusel {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     margin-top:30px;
+    gap: 1.5rem;
 }
 
 #carrusel .card{
@@ -46,8 +47,12 @@ body {
     
 }
 #carrusel .card img{
+    
+}
 
-    font-weight: bold;
+#carrusel .card h3{
+    text-decoration: none !important;
+    margin-top:10px;
 }
 
 #header1{
@@ -64,7 +69,7 @@ h1{
 }
 
 h3{
-    font-size: 1.2vw;
+    font-size: 1.1rem;
 }
 
 #group-input{
@@ -80,6 +85,16 @@ h3{
 }
 
 
+.errores{
+    margin-top: 35px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color:red;
+    font-size: 1.4rem;
+}
+
+
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
 
@@ -89,6 +104,15 @@ h3{
     }
     .main-title > h1{
         font-size: 3.5rem;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    #carrusel .card img{
+     
+    }
+    #carrusel {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
@@ -101,6 +125,15 @@ h3{
     .main-title > h1{
         font-size: 4.5rem;
     }
+    h3{
+        font-size: 1.05rem;
+    }
+    #carrusel .card img{
+       
+    }
+    #carrusel {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 /* Medium devices (tablets, 768px and up)*/
@@ -109,15 +142,27 @@ h3{
         margin:40px 30px;
         border-radius: 10px;
     }
-    
+    #carrusel .card img{
+       
+    }
+    #carrusel {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
-
+    #carrusel .card img{
+        
+    }
+    #carrusel {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-    
+    #carrusel .card img{
+        
+    }
 }

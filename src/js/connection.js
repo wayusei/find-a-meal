@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', indexLoad, false);
 document.getElementById("btn_search").addEventListener("click", busquedaTexto);
 document.getElementById("btn_random").addEventListener("click", busquedaRandom);
+    
 
 let btnRandom = document.getElementById("btn_random");
 btnRandom.addEventListener('click', busquedaRandom);
+
 
 function indexLoad() {
     console.log("Loaded")
@@ -81,6 +83,8 @@ function indexLoad() {
     });
 }
 
+
+
 function createReceta(receta, myDiv) {
 
     const div1 = document.createElement("div");
@@ -112,6 +116,10 @@ function busquedaRandom() {
     // Obtenemos la sección donde se mostrarán los resultados
     let carrusel = document.getElementById("carrusel");
 
+    //Limpiamos la pantalla
+    let errores = document.getElementById("mostrarMensajes");
+    errores.innerHTML ='';
+
     // Lookup a single random meal
     fetch('https://www.themealdb.com/api/json/v1/1/random.php') // Para buscar una receta aleatoria
         .then(response =>
@@ -121,13 +129,15 @@ function busquedaRandom() {
             if (data.meals) { // Existe ese elemento? 
                 //console.log(data.meals);
                 resultados += `
-                        <div class="card card-body" id="${data.meals[0].idMeal}">
-                            <div>
-                                <img class="card-img img-fluid" src="${data.meals[0].strMealThumb}" alt="food">
-                                <h3>${data.meals[0].strMeal}</h3>
-                                <button class="btn btn-lg btn-primary" id="${data.meals[0].idMeal}">Ver más</button>
+                        <a href="#verReceta">
+                            <div class="card card-body" id="${data.meals[0].idMeal}">
+                                <div>
+                                    <img class="card-img img-fluid" src="${data.meals[0].strMealThumb}" alt="food">
+                                    <h3>${data.meals[0].strMeal}</h3>
+                                   <!-- <button class="btn btn-lg btn-primary" id="${data.meals[0].idMeal}">Ver más</button> -->
+                                </div>
                             </div>
-                        </div>
+                        </a>    
                     `;
             }
             carrusel.innerHTML = resultados;
@@ -143,10 +153,16 @@ function busquedaTexto()  {
     let ingrediente = searchInput.value.trim();
     // Obtenemos la sección donde se mostrarán los resultados
     let carrusel = document.getElementById("carrusel");
+    let errores = document.getElementById("mostrarMensajes");
+
+    //Limpiamos la pantalla
+    carrusel.innerHTML = '';
+    errores.innerHTML ='';
 
     //Validamos que no se mande un string vacio para buscar
     if (ingrediente === "") {
-        alert("Debe ingresar un ingrediente");
+        errores.innerHTML =`<h3 class="errores">Debe ingresar un ingrediente</h3>`;
+        //alert("Debe ingresar un ingrediente");
     } else {
         //fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a='+searchInput) // Nota: si se quiere buscar por por área descomentar esta linea
         fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingrediente) // Para buscar por ingrediente principal
@@ -158,17 +174,20 @@ function busquedaTexto()  {
                     data.meals.forEach(element => {
                         //console.log(element);
                         resultados += `
-                            <div class="card card-body" id="${element.idMeal}">
-                                <div>
-                                    <img class="card-img img-fluid" src="${element.strMealThumb}" alt="food">
-                                    <h3>${element.strMeal}</h3>
-                                    <button class="btn btn-lg btn-primary" id="${element.idMeal}">Ver más</button>
+                            <a href="#verReceta" data-toggle="modal" data-target="#verReceta">
+                                <div class="card card-body" id="${element.idMeal}">
+                                    <div>
+                                        <img class="card-img img-fluid" src="${element.strMealThumb}" alt="food">
+                                        <h3>${element.strMeal}</h3>
+                                        <!-- <button class="btn btn-lg btn-primary" id="${element.idMeal}">Ver más</button> -->
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         `;
                     });
                 } else {
-                    alert("No se encontró ninguna receta con ese ingrediente.");
+                    errores.innerHTML =`<h3 class="errores">No se encontró ninguna receta con ese ingrediente</h3>`;
+                    //alert("No se encontró ninguna receta con ese ingrediente.");
                     searchInput.value = ''; // limpiamos el input text
                 }
                 carrusel.innerHTML = resultados;
@@ -177,6 +196,12 @@ function busquedaTexto()  {
 }
 
 function creaModal(idReceta, event){
+
+    // Obtenemos la sección donde se mostrarán los resultados
+    let modalTituloReceta = document.getElementById("titulo-receta");
+    let modalFotoReceta = document.getElementById("foto-receta");
+    let modalDescReceta = document.getElementById("descripcion-receta");
+
     event.preventDefault();
     console.log(idReceta);
     if(idReceta !== undefined) {

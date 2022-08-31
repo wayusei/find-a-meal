@@ -23,9 +23,9 @@
                     <div class="search">
                         <form>
                             <div class="form-group input-group rounded">
-                                <label for="search-text"></label>
-                                <input type="text" class="form-control form-control-lg" id="search-input" aria-describedby="searchHelp" placeholder="¿Qué cocinarás hoy?">
-                                <small id="searchHelp" class="form-text text-muted">Escribe un ingrediente o platillo para encontrar recetas que los incluyan, o , simplemente da click en el botón "Sorpréndeme" para mostrarte nuestras recetas favoritas.</small>
+                                <label for="search-text">Escribe un ingrediente para encontrar recetas que los incluyan, o , simplemente da click en el botón "Sorpréndeme" para mostrarte una de nuestras recetas favoritas.</label>
+                                <input type="text" class="form-control form-control-lg" id="search-input" aria-describedby="searchHelp" placeholder="Escribe un ingrediente...">
+                                <!--<small id="searchHelp" class="form-text text-muted">Escribe un ingrediente o platillo para encontrar recetas que los incluyan, o , simplemente da click en el botón "Sorpréndeme" para mostrarte nuestras recetas favoritas.</small>-->
                             </div>
                             <div class="search-buttons-container d-flex align-self-lg-center">
                                 <button type="button" class="btn btn-danger search-button" id="btn_search">Buscar</button>
@@ -34,13 +34,33 @@
                         </form>
                     </div>
                 </div>
-                <section id="carrusel" class="container" >
-                
-
-                </section>
+                <section id="mostrarMensajes" class="container" ></section>
+                <section id="carrusel" class="container" ></section>
             </div>
         </div>
     </section>
+
+    <div class="modal" tabindex="-1" id="verReceta">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo-receta">Titulo</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5" id="foto-receta">Foto</div>
+                        <div class="col-md-7" id="descripcion-receta">Receta</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
