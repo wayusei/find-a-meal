@@ -37,6 +37,7 @@ body {
 #carrusel {
     display: grid;
     grid-template-columns: auto auto auto;
+    margin-top:30px;
 }
 
 #carrusel .card{
@@ -63,7 +64,7 @@ h1{
 }
 
 h3{
-    font-size: 3vw;
+    font-size: 1.2vw;
 }
 
 #group-input{

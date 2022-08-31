@@ -15,25 +15,29 @@
 <body>
     <section class="main bg-white p-5">
         <div class="container p-3 d-flex justify-content-center">
-            <div class="row p-2">
+            <div class="row p-2" id="myapp">
                 <div class="col-12">
                     <div class="main-title d-flex justify-content-center">
                         <h1>Find-a-meal</h1>
                     </div>
                     <div class="search">
                         <form>
-                            <div class="form-group">
+                            <div class="form-group input-group rounded">
                                 <label for="search-text"></label>
-                                <input type="text" class="form-control form-control-lg" id="search-text" aria-describedby="searchHelp" placeholder="¿Qué cocinarás hoy?">
+                                <input type="text" class="form-control form-control-lg" id="search-input" aria-describedby="searchHelp" placeholder="¿Qué cocinarás hoy?">
                                 <small id="searchHelp" class="form-text text-muted">Escribe un ingrediente o platillo para encontrar recetas que los incluyan, o , simplemente da click en el botón "Sorpréndeme" para mostrarte nuestras recetas favoritas.</small>
                             </div>
                             <div class="search-buttons-container d-flex align-self-lg-center">
-                                <button type="button" class="btn btn-danger search-button">Buscar</button>
-                                <button type="button" class="btn btn-outline-info surprise-me-button">Sorpréndeme</button>
+                                <button type="button" class="btn btn-danger search-button" id="btn_seearch">Buscar</button>
+                                <button type="button" class="btn btn-outline-info surprise-me-button" id="btn_random">Sorpréndeme</button>
                             </div>
                         </form>
                     </div>
                 </div>
+                <section id="carrusel" class="container" >
+                
+
+                </section>
             </div>
         </div>
     </section>
