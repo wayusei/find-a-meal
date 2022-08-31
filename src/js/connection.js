@@ -125,7 +125,7 @@ function busquedaRandom() {
                             <div>
                                 <img class="card-img img-fluid" src="${data.meals[0].strMealThumb}" alt="food">
                                 <h3>${data.meals[0].strMeal}</h3>
-                                <button class"btn btn-lg btn-primary" id="${data.meals[0].idMeal}">Ver más</button>
+                                <button class="btn btn-lg btn-primary" id="${data.meals[0].idMeal}">Ver más</button>
                             </div>
                         </div>
                     `;
@@ -162,7 +162,7 @@ function busquedaTexto()  {
                                 <div>
                                     <img class="card-img img-fluid" src="${element.strMealThumb}" alt="food">
                                     <h3>${element.strMeal}</h3>
-                                    <button class"btn btn-lg btn-primary" id="${element.idMeal}">Ver más</button>
+                                    <button class="btn btn-lg btn-primary" id="${element.idMeal}">Ver más</button>
                                 </div>
                             </div>
                         `;
