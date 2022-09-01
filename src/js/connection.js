@@ -113,7 +113,8 @@ function createReceta(receta, myDiv) {
 }*/
 
 function createTemplate(data){
-            let resultados = "";
+            const node1 = document.getElementById("carrusel");
+            
              data.meals.forEach(element => {
                         
                 
@@ -124,12 +125,24 @@ function createTemplate(data){
                             
                         }
 
+                        //console.log(receta);
+
+                        const node = document.createElement('div');
+
+                        node.setAttribute("data-toggle","modal");
+                        node.setAttribute("data-target","#modal"+receta.id);
+                        node.setAttribute("id","div"+receta.id);
+
+                        
+
+
+
                          
-                        resultados += `
-                            <a  data-toggle="modal"  data-target="#modal${receta.id}" onclick="createModal(${receta.id})" >
+                        let resultados = `
+                            
                                 <div class="card card-body">
                                     <div>
-                                        <img class="card-img img-fluid" src="${receta.imagen}" alt="food">
+                                        <img class="card-img img-fluid" src="${receta.imagen}" alt="food" id="img${receta.id}">
                                         <h3>${receta.nombre}</h3>
                                         
                                     </div>
@@ -148,7 +161,7 @@ function createTemplate(data){
                                                  <!-  -------------------------------- -->
                                                         <div class="container-fluid">
                                                             <div class="row" >
-                                                                                                             
+                                                                         div${receta.id}                                    
                                                             </div>
                                                         
                                                         </div>
@@ -168,16 +181,29 @@ function createTemplate(data){
                                     </div> <!--- -->
                                 </div>
 
-                            </a>
+                           
                         `;
-                    });
 
-    return resultados;
+                        node.innerHTML = resultados;
+                        
+                        node.addEventListener ("click", createModal);
+                        node.myID=receta.id;
+                        node1.appendChild(node);
+                        
+                         
+
+                        
+                    });
+                   
+
+    //return node1;
 }
 
 function busquedaRandom() {
     // Obtenemos la sección donde se mostrarán los resultados
     let carrusel = document.getElementById("carrusel");
+
+   
 
     //Limpiamos la pantalla
     let errores = document.getElementById("mostrarMensajes");
@@ -188,10 +214,19 @@ function busquedaRandom() {
         .then(response =>
             response.json()
         ).then(data => {
-            let resultados = createTemplate(data);
+             //console.log(data);
+            //const resultados = createTemplate(data);
+            carrusel.innerHTML="";
+            createTemplate(data);
             
-            carrusel.innerHTML = resultados;
-        }).catch((error) => `failed.${error}`);;
+            //carrusel.innerHTML = resultados;
+            
+            //carrusel.appendChild(resultados);
+
+            
+            
+
+        }).catch((error) => console.log(`failed.${error}`));;
 }
 
 /**
@@ -220,31 +255,43 @@ function busquedaTexto()  {
             ).then(data => {
                 
                 if (data.meals) {
-                    let resultados = createTemplate(data);
+                     //const resultados = createTemplate(data);
             
-                    carrusel.innerHTML = resultados;
+                    //carrusel.innerHTML = resultados;
+                    //carrusel.innerHTML="";
+                    //carrusel.appendChild(resultados);
+                    carrusel.innerHTML="";
+                    createTemplate(data);
+            
+            
+            
+                    //document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
                 } else {
                     errores.innerHTML =`<h3 class="errores">No se encontró ninguna receta con ese ingrediente</h3>`;
                     //alert("No se encontró ninguna receta con ese ingrediente.");
                     searchInput.value = ''; // limpiamos el input text
                 }
-                carrusel.innerHTML = resultados;
-            }).catch((error) => `failed.${error}`);;
+                //carrusel.innerHTML = resultados;
+            }).catch((error) => console.log(`failed.${error}`));;
     }
 }
 
-function createModal(idReceta){
+function createModal(e){
 
     // Obtenemos la sección donde se mostrarán los resultados
+    let idReceta=e.currentTarget.myID;
     let divModal = document.getElementById("modal"+idReceta);
+   
 
     //let divModal = document.getElementById("verReceta");
-    
+   
 
     
     
     if(idReceta !== undefined) {
         // Lookup full meal details by id
+
+        
         fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + idReceta)
         .then(response => response.json())
         .then(data => {
@@ -329,8 +376,8 @@ function createModal(idReceta){
                                                                                     <h4>Ingredients</h4>
                                                                                     <ul>`;
                                                                                         for(let i=0;i<receta.ingredientes.length;i++){
-                                                                                            if(receta.cantidades[i]!="" && receta.cantidades[i]!=" ")
-                                                                                                contenido+=`<li>${receta.cantidades[i]} ${receta.ingredientes[i]}</li>`;    
+                                                                                            if(receta.cantidades[i]!="" && receta.cantidades[i]!=" " && receta.cantidades[i]!=null)
+                                                                                                contenido+=`<li>${receta.ingredientes[i]} (${receta.cantidades[i]})</li>`;    
                                                                                         }
 
                                                                                         
