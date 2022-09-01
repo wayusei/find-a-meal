@@ -100,6 +100,29 @@ h3{
     margin: 1.75rem auto;
 }
 
+.modal-title{
+    text-transform: capitalize;
+    margin-bottom:5px;
+}
+
+.image-card{
+    padding: 1.25rem;
+    margin-top:0.8rem;
+}
+
+.card-body ul li {
+    text-transform: capitalize;
+    font-weight: normal;
+}
+
+.card-body p {
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
 
@@ -163,7 +186,7 @@ h3{
         font-size: 1.1rem;
     }
     .modal-dialog {
-        max-width: 600px;
+        max-width: 700px;
     }
 }
 
@@ -177,7 +200,7 @@ h3{
         font-size: 1.1rem;
     }
     .modal-dialog {
-        max-width: 750px;
+        max-width: 900px;
     }
 }
 
