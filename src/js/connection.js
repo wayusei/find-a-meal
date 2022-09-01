@@ -329,8 +329,8 @@ function createModal(idReceta){
                                                                                     <h4>Ingredients</h4>
                                                                                     <ul>`;
                                                                                         for(let i=0;i<receta.ingredientes.length;i++){
-                                                                                            if(receta.cantidades[i]!="" && receta.cantidades[i]!=" ")
-                                                                                                contenido+=`<li>${receta.cantidades[i]} ${receta.ingredientes[i]}</li>`;    
+                                                                                            if(receta.cantidades[i]!="" && receta.cantidades[i]!=" " && receta.cantidades[i]!=null)
+                                                                                                contenido+=`<li>${receta.ingredientes[i]} (${receta.cantidades[i]})</li>`;    
                                                                                         }
 
                                                                                         
