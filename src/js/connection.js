@@ -7,6 +7,7 @@ let btnRandom = document.getElementById("btn_random");
 btnRandom.addEventListener('click', busquedaRandom);
 
 
+
 function indexLoad() {
     console.log("Loaded")
 
@@ -77,7 +78,7 @@ function indexLoad() {
                     categoria: element.strCategory
                 }
 
-                createReceta(receta, tresRecetas);
+              //  createReceta(receta, tresRecetas);
             }
         }
     });
@@ -113,6 +114,7 @@ function createReceta(receta, myDiv) {
 }
 
 function busquedaRandom() {
+    let searchInput = document.getElementById("search-input");
     // Obtenemos la sección donde se mostrarán los resultados
     let carrusel = document.getElementById("carrusel");
 
@@ -129,8 +131,8 @@ function busquedaRandom() {
             if (data.meals) { // Existe ese elemento? 
                 //console.log(data.meals);
                 resultados += `
-                        <a href="#verReceta">
-                            <div class="card card-body" id="${data.meals[0].idMeal}">
+                        <a href="#verReceta" data-toggle="modal" data-target="#verReceta" id="recetaOpenModal">
+                            <div class="card h-100 card-body" id="${data.meals[0].idMeal}">
                                 <div>
                                     <img class="card-img img-fluid" src="${data.meals[0].strMealThumb}" alt="food">
                                     <h3>${data.meals[0].strMeal}</h3>
@@ -141,6 +143,7 @@ function busquedaRandom() {
                     `;
             }
             carrusel.innerHTML = resultados;
+            searchInput.value = ''; // limpiamos el input text
         }).catch((error) => `failed.${error}`);;
 }
 
@@ -174,7 +177,7 @@ function busquedaTexto()  {
                     data.meals.forEach(element => {
                         //console.log(element);
                         resultados += `
-                            <a href="#verReceta" data-toggle="modal" data-target="#verReceta">
+                            <a href="#verReceta" data-toggle="modal" data-target="#verReceta" id="recetaOpenModal">
                                 <div class="card card-body" id="${element.idMeal}">
                                     <div>
                                         <img class="card-img img-fluid" src="${element.strMealThumb}" alt="food">
