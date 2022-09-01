@@ -113,7 +113,7 @@ function createReceta(receta, myDiv) {
 }*/
 
 function createTemplate(data){
-            const node1 = document.createElement('div');
+            const node1 = document.getElementById("carrusel");
             
              data.meals.forEach(element => {
                         
@@ -139,7 +139,7 @@ function createTemplate(data){
 
                          
                         let resultados = `
-                            <div  >
+                            
                                 <div class="card card-body">
                                     <div>
                                         <img class="card-img img-fluid" src="${receta.imagen}" alt="food" id="img${receta.id}">
@@ -181,7 +181,7 @@ function createTemplate(data){
                                     </div> <!--- -->
                                 </div>
 
-                            </div>
+                           
                         `;
 
                         node.innerHTML = resultados;
@@ -196,7 +196,7 @@ function createTemplate(data){
                     });
                    
 
-    return node1;
+    //return node1;
 }
 
 function busquedaRandom() {
@@ -215,10 +215,13 @@ function busquedaRandom() {
             response.json()
         ).then(data => {
              //console.log(data);
-            const resultados = createTemplate(data);
+            //const resultados = createTemplate(data);
+            carrusel.innerHTML="";
+            createTemplate(data);
             
             //carrusel.innerHTML = resultados;
-            carrusel.appendChild(resultados);
+            
+            //carrusel.appendChild(resultados);
 
             
             
@@ -252,18 +255,24 @@ function busquedaTexto()  {
             ).then(data => {
                 
                 if (data.meals) {
-                    let resultados = createTemplate(data);
+                     //const resultados = createTemplate(data);
             
-            //carrusel.innerHTML = resultados;
-            carrusel.appendChild(resultados);
-                    document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
+                    //carrusel.innerHTML = resultados;
+                    //carrusel.innerHTML="";
+                    //carrusel.appendChild(resultados);
+                    carrusel.innerHTML="";
+                    createTemplate(data);
+            
+            
+            
+                    //document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
                 } else {
                     errores.innerHTML =`<h3 class="errores">No se encontró ninguna receta con ese ingrediente</h3>`;
                     //alert("No se encontró ninguna receta con ese ingrediente.");
                     searchInput.value = ''; // limpiamos el input text
                 }
-                carrusel.innerHTML = resultados;
-            }).catch((error) => `failed.${error}`);;
+                //carrusel.innerHTML = resultados;
+            }).catch((error) => console.log(`failed.${error}`));;
     }
 }
 
