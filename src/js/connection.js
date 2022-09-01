@@ -133,9 +133,6 @@ function createTemplate(data){
                                         <h3>${receta.nombre}</h3>
                                         
                                     </div>
-                                </div>
-
-                            </a>
                                     <div class="modal fade" id="modal${receta.id}" tabindex="-1" role="dialog">
                                     <!------------------ ------>
 
@@ -151,10 +148,7 @@ function createTemplate(data){
                                                  <!-  -------------------------------- -->
                                                         <div class="container-fluid">
                                                             <div class="row" >
-                                                                        
-                                                            
-
-                                                            
+                                                                                                             
                                                             </div>
                                                         
                                                         </div>
@@ -172,7 +166,9 @@ function createTemplate(data){
 
 
                                     </div> <!--- -->
+                                </div>
 
+                            </a>
                         `;
                     });
 
