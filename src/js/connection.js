@@ -114,9 +114,7 @@ function createReceta(receta, myDiv) {
 
 function createTemplate(data){
             const node1 = document.createElement('div');
-             const boton = document.createElement('button');
-            boton.innerText = "Ver más";
-            node1.appendChild(boton)
+            
              data.meals.forEach(element => {
                         
                 
