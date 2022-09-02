@@ -1,10 +1,12 @@
 # Find-a-meal
 *¿No sabes qué hacer de comer con ingredientes que tienes en casa? :anguished: ¿te quedaste sin ideas o tienes un evento familiar y no sabes qué cocinar? :scream: ¡**Find-a meal** es la solución que buscabas! con un recetario totalmente digital y dinámico para descubrir tus nuevas recetas favoritas.*
 
-## ¿Cómo usarlo?
-Con tan solo poner el nombre del ingrediente (:speak_no_evil: OJO: este tiene que estar escrito en inglés) en "Escribe un ingrediente" y haciendo click en "Buscar" este te traerá las recetas que contienen el ingrediente que escribiste y ¡listo! podrás seleccionar cualquier receta haciendo click sobre la imagen para leerla y comenzar a cocinar. Si por otro lado quieres ser sorprendido por alguna de nuestras recetas favoritas simplemente haz click en el botón "Sorpréndeme" para mostrarte una receta al azar que seguramente te encantará. :heart_eyes:
+![Imagen de la página principal](https://raw.githubusercontent.com/wayusei/find-a-meal/master/imagenesProyecto/pagina_principal.jpg) 
 
-En caso de que no se encuentre el ingrediente que escribiste, hayas escrito un nombre del platillo (porque recordemos que solo busca por ingredientes) o lo hayas escrito en español (o en otro idioma incluso), te desplegará el mensaje "No se encontró ninguna receta con este ingrediente". Por lo que te invitamos a intentarlo una vez más :relaxed: que tu aventura en la cocina apenas comienza. :sparkles:
+## ¿Cómo usarlo? ¿?Pendiente si seguirá buscando por ingrediente¿?
+Con tan solo poner el nombre del ingrediente (:see_no_evil: OJO: este tiene que estar escrito en inglés) en "Escribe un ingrediente" y haciendo click en "Buscar" este te traerá las recetas que contienen el ingrediente que escribiste y ¡listo! podrás seleccionar cualquier receta haciendo click sobre la imagen para leerla y comenzar a cocinar. Si por otro lado quieres ser sorprendido por alguna de nuestras recetas favoritas simplemente haz click en el botón "Sorpréndeme" para mostrarte una receta al azar que seguramente te encantará. :heart_eyes:
+
+En caso de que no se encuentre el ingrediente que escribiste, hayas escrito un nombre de platillo (porque recordemos que solo busca por ingredientes) o lo hayas escrito en español (o en otro idioma incluso), te desplegará el mensaje "No se encontró ninguna receta con este ingrediente". Por lo que te invitamos a intentarlo una vez más :relaxed: que tu aventura en la cocina apenas comienza. :sparkles:
 
 ## ¿Hay pre-requisitos para usar **Find-a-meal-**? :computer:
 Solo necesitas un equipo conectado a internet y acceder a la página [Find-a-meal](https://wayusei.github.io/find-a-meal/?#verReceta) para comenzar a descubrir el mundo de la cocina. 
@@ -40,6 +42,10 @@ A medida que se iba avanzando surgieron algunas dudas de los compañeros respect
 Se revisaron los pull request y se hizo merge a la rama develop y master para que la página estuviera montada en GitHub pages con los cambios actuales el 30 de agosto; y así el último día del módulo, al terminar, se acordó una junta para ver lo que faltaba.
 
 Algunos problemas que se vieron fueron que la fuente original que se vió para la página no se subió correctamente (se cambió por otra), hubo confusión sobre el documento index.html en la rama main y develop (por lo que afectó cuando se cargó la página para ver los cambios) y no sé sabía sobre cuál trabajar; al escribir un ingrediente en la página no buscaba nada (WebPack no buscaba ingredientes) y se decidió cambiar el mensaje "No se encontró ninguna receta con este ingrediente", que aparecía como un cuadro de diálogo en el navegador, a que saliera abajo donde se supone que salen las recetas. 
+
+Algunos problemas continuaron como que la API de búsqueda por ingredientes no traía todos los datos, al seleccionar una receta salía el modal vacío (solo se visualizaba el título), problema con la altura de las cards, 
+
+¿?para poder buscar en la API por nombre del platillo (aparte de por ingrediente) ya solo me quedará investigar cómo evitar que se 'refresque' la página si le damos 'Enter' en vez de clic en el botón de búsqueda
 
 ## Integrantes del equipo de Find-a-meal :construction_worker:
 - Rodrigo Rosas
