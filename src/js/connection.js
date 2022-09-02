@@ -139,14 +139,18 @@ function createTemplate(data){
 
                          
                         let resultados = `
-                            
-                                <div class="card card-body">
+
+                     
+                                <div class="card card-body h-100">
                                     <div>
                                         <img class="card-img img-fluid" src="${receta.imagen}" alt="food" id="img${receta.id}">
-                                        <h3>${receta.nombre}</h3>
+                                        <h3 class="modal-title">${receta.nombre}</h3>
                                         
                                     </div>
-                                    <div class="modal fade" id="modal${receta.id}" tabindex="-1" role="dialog">
+                                </div>    
+
+                                <div class="modal fade" id="modal${receta.id}" tabindex="-1" role="dialog" > 
+
                                     <!------------------ ------>
 
                                     <div class="modal-dialog" role="document">
@@ -179,9 +183,9 @@ function createTemplate(data){
 
 
                                     </div> <!--- -->
-                                </div>
 
-                           
+
+
                         `;
 
                         node.innerHTML = resultados;
@@ -348,8 +352,8 @@ function createModal(e){
                     categoria: element.strCategory
                 }
 
-                let contenido=`  <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
+                let contenido=`     <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" >${receta.nombre}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" >
@@ -357,64 +361,35 @@ function createModal(e){
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                 <!-  -------------------------------- -->
-                                                        <div class="container-fluid">
-                                                            <div class="row" >
-                                                            
-                                                        
-                                                                <section class="container">
-                                                        
-                                                        
-                                                                    <div class="row">
-                                                                        <div class="col-sm">
-                                                                            <div class="card image-card">
-                                                                                <div class="card-body">
-                                                                                    <img class="image-food img-fluid"
-                                                                                        src="${receta.imagen}">
-                                                                                    <h3>${receta.nombre}</h3>
-                                                        
-                                                                                    <h4>Ingredients</h4>
-                                                                                    <ul>`;
-                                                                                        for(let i=0;i<receta.ingredientes.length;i++){
-                                                                                            if(receta.cantidades[i]!="" && receta.cantidades[i]!=" " && receta.cantidades[i]!=null)
-                                                                                                contenido+=`<li>${receta.ingredientes[i]} (${receta.cantidades[i]})</li>`;    
-                                                                                        }
-
-                                                                                        
-                                                                                        
-                                                                                    contenido+=`</ul>
-                                                                                    <h4>Preparation</h4>
-                                                        
-                                                                                    <p>${receta.preparacion}</p>
-                                                        
-                                                        
-                                                                                </div>
-                                                        
-                                                                            </div>
-                                                        
-                                                                        </div>
-                                                        
-                                                                    </div>
-                                                        
-                                                                </section>
-                                                    
-                                                            </div>
-                                                        
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-md-5 image-card" id="foto-receta">
+                                                            <img class="image-food img-fluid" src="${receta.imagen}">
                                                         </div>
-
-                                                 <!- ---------------------------------- -->
-
+                                                        <div class="col-md-7 card-body" id="descripcion-receta">
+                                                            <h2 class="modal-title">${receta.nombre}</h2>
+                                                            <h4>Ingredients</h4>
+                                                            <ul>`;
+                                                                for(let i=0;i<receta.ingredientes.length;i++){
+                                                                    if(receta.cantidades[i]!="" && receta.cantidades[i]!=" " && receta.cantidades[i]!=null)
+                                                                        contenido+=`<li>${receta.ingredientes[i]} (${receta.cantidades[i]})</li>`;    
+                                                                }
+                                                            contenido+=`</ul>
+                                                            <h4>Preparation</h4>
+                                
+                                                            <p>${receta.preparacion}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                 
                                             </div>
-                                            </div>
-                                        </div>`;
+                                        </div>
+                                    </div>`;
 
                 divModal.innerHTML=contenido;
-
-                
 
             });
             
