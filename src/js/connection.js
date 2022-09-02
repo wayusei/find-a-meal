@@ -145,7 +145,7 @@ function busquedaRandom() {
 function busquedaTexto()  {
     // Obtendremos el valor del texto del input para buscar una receta por ingrediente principal
     let searchInput = document.getElementById("search-input");
-    let ingrediente = searchInput.value.trim();
+    let ingredienteOPlatillo = searchInput.value.trim();
     // Obtenemos la sección donde se mostrarán los resultados
     let carrusel = document.getElementById("carrusel");
     let errores = document.getElementById("mostrarMensajes");
@@ -155,11 +155,11 @@ function busquedaTexto()  {
     errores.innerHTML ='';
 
     //Validamos que no se mande un string vacio para buscar
-    if (ingrediente === "") {
+    if (ingredienteOPlatillo === "") {
         errores.innerHTML =`<h3 class="errores">Debe ingresar un ingrediente</h3>`;
         //alert("Debe ingresar un ingrediente");
     } else {
-        fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingrediente) // Para buscar por ingrediente principal
+        fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredienteOPlatillo) // Para buscar por ingrediente principal
             .then(response =>
                 response.json()
             ).then(data => {
@@ -177,13 +177,36 @@ function busquedaTexto()  {
             
                     //document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
                 } else {
-                    errores.innerHTML =`<h3 class="errores">No se encontró ninguna receta con ese ingrediente</h3>`;
-                    //alert("No se encontró ninguna receta con ese ingrediente.");
-                    searchInput.value = ''; // limpiamos el input text
+
+                    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + ingredienteOPlatillo) // Para buscar por nombre de platillo
+                    .then(response =>
+                        response.json()
+                    ).then(data => {
+                        
+                        if (data.meals) {
+                             //const resultados = createTemplate(data);
+                    
+                            //carrusel.innerHTML = resultados;
+                            //carrusel.innerHTML="";
+                            //carrusel.appendChild(resultados);
+                            carrusel.innerHTML="";
+                            createTemplate(data);
+                    
+                    
+                    
+                            //document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
+                        } else {
+                            errores.innerHTML =`<h3 class="errores">No se encontró ninguna receta con ese nombre o ingrediente</h3>`;
+                            //alert("No se encontró ninguna receta con ese ingrediente.");
+                            searchInput.value = ''; // limpiamos el input text
+                        }
+                        //carrusel.innerHTML = resultados;
+                    }).catch((error) => console.log(`failed.${error}`));;
+
                 }
                 //carrusel.innerHTML = resultados;
             }).catch((error) => console.log(`failed.${error}`));;
-    }
+    } 
 }
 
 function createModal(e){
