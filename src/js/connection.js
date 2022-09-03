@@ -1,12 +1,9 @@
 //document.addEventListener('DOMContentLoaded', indexLoad, false);
 document.getElementById("btn_search").addEventListener("click", busquedaTexto);
 document.getElementById("btn_random").addEventListener("click", busquedaRandom);
-    
 
 let btnRandom = document.getElementById("btn_random");
 btnRandom.addEventListener('click', busquedaRandom);
-
-
 
 function createTemplate(data){
             const node1 = document.getElementById("carrusel");
@@ -157,73 +154,43 @@ function busquedaTexto()  {
     //Validamos que no se mande un string vacio para buscar
     if (ingredienteOPlatillo === "") {
         errores.innerHTML =`<h3 class="errores">Debe ingresar un ingrediente</h3>`;
-        //alert("Debe ingresar un ingrediente");
     } else {
-        fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredienteOPlatillo) // Para buscar por ingrediente principal
+        // Para buscar por ingrediente principal
+        fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=' + ingredienteOPlatillo) 
             .then(response =>
                 response.json()
             ).then(data => {
-                
                 if (data.meals) {
-                     //const resultados = createTemplate(data);
-            
-                    //carrusel.innerHTML = resultados;
-                    //carrusel.innerHTML="";
-                    //carrusel.appendChild(resultados);
                     carrusel.innerHTML="";
                     createTemplate(data);
-            
-            
-            
-                    //document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
                 } else {
-
-                    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + ingredienteOPlatillo) // Para buscar por nombre de platillo
-                    .then(response =>
-                        response.json()
-                    ).then(data => {
-                        
-                        if (data.meals) {
-                             //const resultados = createTemplate(data);
-                    
-                            //carrusel.innerHTML = resultados;
-                            //carrusel.innerHTML="";
-                            //carrusel.appendChild(resultados);
-                            carrusel.innerHTML="";
-                            createTemplate(data);
-                    
-                    
-                    
-                            //document.getElementById ("div"+data.meals.idMeal).addEventListener ("click", createModal(data.meals.idMeal));
-                        } else {
-                            errores.innerHTML =`<h3 class="errores">No se encontró ninguna receta con ese nombre o ingrediente</h3>`;
-                            //alert("No se encontró ninguna receta con ese ingrediente.");
-                            searchInput.value = ''; // limpiamos el input text
-                        }
-                        //carrusel.innerHTML = resultados;
-                    }).catch((error) => console.log(`failed.${error}`));;
-
+                    // Para buscar por platillo
+                    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + ingredienteOPlatillo) 
+                        .then(response =>
+                            response.json()
+                        ).then(data => {
+                            if (data.meals) {
+                                carrusel.innerHTML="";
+                                createTemplate(data);
+                            } else {
+                                errores.innerHTML =`<h3 class="errores">No se encontró ningún platillo o ingrediente con ese nombre</h3>`;
+                                searchInput.value = ''; 
+                            }
+                        }).catch((error) => console.log(`failed.${error}`));
                 }
-                //carrusel.innerHTML = resultados;
-            }).catch((error) => console.log(`failed.${error}`));;
-    } 
+        }).catch((error) => console.log(`failed.${error}`));;
+    }
 }
 
 function createModal(e){
 
     // Obtenemos la sección donde se mostrarán los resultados
     let idReceta=e.currentTarget.myID;
-    let divModal = document.getElementById("modal"+idReceta);
-   
+    let divModal = document.getElementById("modal"+idReceta);   
 
-    //let divModal = document.getElementById("verReceta");
-   
-
-    
     
     if(idReceta !== undefined) {
         // Lookup full meal details by id
-
         
         fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + idReceta)
         .then(response => response.json())
