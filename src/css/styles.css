@@ -117,6 +117,7 @@ h3{
 
 .card-body p {
     font-weight: normal;
+    text-align: justify;
 }
 
 h4 {
